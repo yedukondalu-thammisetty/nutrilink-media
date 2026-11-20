@@ -89,5 +89,119 @@
    "h": 250
   },
   "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
- }
+ },
+ "outro": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి",
+    "px": 40,
+    "weight": 700,
+    "width": 789.09375
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 290.46875,
+   "y": 530,
+   "w": 499.046875,
+   "h": 420
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P +91 8008978350 p.venkateswarlu333@gmail.com"
+ },
+ "voice": {
+  "phrases": [
+   {
+    "stage": 0,
+    "phrase": "చలికాలంలోనూ నీళ్లు తాగడం మరవకండి!",
+    "file": "voice/s0p0.m4a",
+    "seconds": 3.37
+   },
+   {
+    "stage": 1,
+    "phrase": "మొదటిది, రోజుకు ఎనిమిది నుండి పది గ్లాసుల నీళ్లు తాగండి.",
+    "file": "voice/s1p0.m4a",
+    "seconds": 4.39
+   },
+   {
+    "stage": 2,
+    "phrase": "రెండవది, గోరువెచ్చని నీళ్లు,",
+    "file": "voice/s2p0.m4a",
+    "seconds": 2.36
+   },
+   {
+    "stage": 2,
+    "phrase": "హెర్బల్ టీ కూడా మంచివే.",
+    "file": "voice/s2p1.m4a",
+    "seconds": 2.78
+   },
+   {
+    "stage": 3,
+    "phrase": "మూడవది, దాహం వేయకపోయినా కొద్దికొద్దిగా తాగుతూ ఉండండి.",
+    "file": "voice/s3p0.m4a",
+    "seconds": 4.62
+   },
+   {
+    "stage": 4,
+    "phrase": "ఉచిత వెల్నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి.",
+    "file": "voice/s4p0.m4a",
+    "seconds": 4.76
+   },
+   {
+    "stage": 4,
+    "phrase": "వెల్నెస్ కోచ్ వెంకటేశ్వర్లు గారిని,",
+    "file": "voice/s4p1.m4a",
+    "seconds": 2.98
+   },
+   {
+    "stage": 4,
+    "phrase": "స్క్రీన్పై ఉన్న నంబర్లో సంప్రదించండి.",
+    "file": "voice/s4p2.m4a",
+    "seconds": 4.09
+   },
+   {
+    "stage": 5,
+    "phrase": "న్యూట్రిలింక్ బై న్యూట్రిగ్లో.",
+    "file": "voice/s5p0.m4a",
+    "seconds": 2.55
+   },
+   {
+    "stage": 5,
+    "phrase": "నరిష్, ట్రాన్స్ఫార్మ్, గ్లో.",
+    "file": "voice/s5p1.m4a",
+    "seconds": 3.01
+   },
+   {
+    "stage": 5,
+    "phrase": "రోజూ ఆరోగ్య చిట్కాల కోసం,",
+    "file": "voice/s5p2.m4a",
+    "seconds": 2.68
+   },
+   {
+    "stage": 5,
+    "phrase": "మా ఛానెల్ని సబ్స్క్రైబ్ చేయండి.",
+    "file": "voice/s5p3.m4a",
+    "seconds": 3.16
+   }
+  ],
+  "stage_starts": [
+   0,
+   4.517642,
+   10.056962,
+   16.520046,
+   22.291565,
+   35.804354000000004
+  ],
+  "stage_durations": [
+   4.517642,
+   5.53932,
+   6.463083999999999,
+   5.771519,
+   13.512789000000001,
+   14.233968
+  ]
+ },
+ "music": "track3.m4a"
 }

@@ -13,7 +13,10 @@ Checks
   5. Branding: logo file hash equals the locked official logo; logo is drawn at the locked size,
      horizontally centred, and is actually visible (pixel check) in the image AND the final video frame.
      Contact block text is exactly the locked contact details.
-  6. Video frames are not blank.
+  6. Video frames are not blank; branded outro (logo, tagline, subscribe) is the last scene.
+  7. Audio: voice-over + music present, loudness -18..-12 LUFS, no clipping, video <= 59 s.
+     Every narration phrase is checked by speech recognition (Whisper, offline): its opening words
+     must match the script (>= 0.6) and its speaking rate must be natural.
 Also writes <post_dir>/qa_sheet.jpg (image + video frames) for a final visual review.
 """
 import hashlib, json, pathlib, subprocess, sys, tempfile
@@ -61,7 +64,7 @@ def main():
     dur = float(pr["format"]["duration"]); size = vid.stat().st_size
     check(vs and vs[0]["codec_name"] == "h264" and (vs[0]["width"], vs[0]["height"]) == (1080, 1920), "video h264 1080x1920")
     check(bool(au), "video has audio track")
-    check(10 <= dur <= 60, f"video duration {dur:.1f}s")
+    check(10 <= dur <= 59, f"video duration {dur:.1f}s (Shorts limit)")
     check(size < 100 * 1024 * 1024, f"video size {size/1e6:.1f} MB < 100 MB")
 
     # 2-4 per layout
@@ -87,6 +90,30 @@ def main():
         ct = m["contactText"]
         for s in (LOCK["contact_name"], LOCK["contact_phone"], LOCK["contact_email"]):
             check(s in ct, f"{kind}: contact contains '{s}'")
+    # outro scene
+    mo = qa["outro"]
+    check(not mo["overflow"], f"outro: no overflow {mo['overflow'] if mo['overflow'] else ''}")
+    check(abs(mo["logo"]["h"] - render.LOGO_HEIGHT["outro"]) < 0.5 and abs(mo["logo"]["x"] + mo["logo"]["w"] / 2 - 540) < 1.5, "outro: logo locked size, centred")
+    for t in mo["te"]:
+        f = tel[700 if t["weight"] >= 600 else 400].font_variant(size=t["px"]); ratio = t["width"] / f.getlength(t["text"])
+        check(0.97 <= ratio <= 1.03, f"outro: Telugu shaped correctly ({ratio:.3f}) '{t['text'][:30]}'")
+
+    # 7. audio
+    import re as _re, difflib, asr_check
+    lo = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(vid), "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True).stderr
+    I = float(_re.findall(r"I:\s+(-?[\d.]+) LUFS", lo)[-1]); pk = float(_re.findall(r"Peak:\s+(-?[\d.]+) dBFS", lo)[-1])
+    check(-18 <= I <= -12, f"audio loudness {I} LUFS")
+    check(pk <= -1.0, f"audio peak {pk} dBFS (no clipping)")
+    check((HERE / "audio" / qa.get("music", "missing")).exists(), f"original background music used: {qa.get('music')}")
+    for r in qa["voice"]["phrases"]:
+        L = len(_re.sub(r"[^\u0C00-\u0C7F]", "", r["phrase"]))
+        rate = r["seconds"] / max(L, 1)
+        check(0.05 <= rate <= 0.25, f"voice rate natural ({rate:.3f}s/letter) '{r['phrase'][:24]}'")
+        heard = asr_check.transcribe(d / r["file"])
+        nh, ne = asr_check.norm(heard), asr_check.norm(r["phrase"])
+        pref = difflib.SequenceMatcher(None, ne[:len(nh) + 2], nh).ratio() if len(nh) >= 3 else 0
+        check(pref >= 0.6, f"voice says the right words ({pref:.2f}) '{r['phrase'][:24]}' heard '{heard[:24]}'")
+
     # 5. brand lock
     sha = hashlib.sha256(render.LOGO_PNG.read_bytes()).hexdigest()
     check(sha == LOCK["logo_png_sha256"] == qa["logo_sha256"], "logo file is the locked official logo")
@@ -98,17 +125,18 @@ def main():
 
     # 6. video frames
     with tempfile.TemporaryDirectory() as td:
-        times = [0.5, 3, 6, 9, 12, dur - 0.3]
+        st = qa["voice"]["stage_starts"]
+        times = [st[0] + 1.0] + [x + 1.2 for x in st[1:]] + [dur - 0.3]
         frames = []
         for i, t in enumerate(times):
             p = f"{td}/f{i}.png"
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{t}", "-i", str(vid), "-frames:v", "1", p], check=True)
             fr = Image.open(p).convert("RGB"); frames.append(fr)
             check(np.asarray(fr).std() > 10, f"video frame @{t:.1f}s not blank")
-        logo_visible(frames[-1], qa["short"]["logo"], "video final frame")
+        logo_visible(frames[-1], qa["outro"]["logo"], "video outro frame")
         logo_visible(frames[0], qa["short"]["logo"], "video first frame")
         # contact sheet for human/agent visual review
-        sheet = Image.new("RGB", (1080 + 6 * 405, 1350), "white")
+        sheet = Image.new("RGB", (1080 + len(frames) * 405, 1350), "white")
         sheet.paste(im, (0, 0))
         for i, fr in enumerate(frames):
             sheet.paste(fr.resize((405, 720)), (1080 + i * 405, 0))

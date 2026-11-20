@@ -27,11 +27,16 @@ HERE = pathlib.Path(__file__).resolve().parent
 # tools/brand/logo.png is the white mark + "NutriLink / by NutriGlow" extracted from it.
 # Its sha256 is pinned in tools/brand/brand.lock.json and checked by validate.py.
 LOGO_PNG = HERE / "brand" / "logo.png"
-LOGO_HEIGHT = {"post": 190, "short": 250}  # px; fixed
+LOGO_HEIGHT = {"post": 190, "short": 250, "outro": 420}  # px; fixed
 BRAND_COLORS = {"teal": "#10A9A6", "blue": "#1F72E0", "green": "#8BD54E", "navy": "#131C2B", "white": "#FFFFFF"}
 CONTACT_NAME = "Wellness Coach Venkteswarlu.P"
 CONTACT_PHONE = "+91 8008978350"
 CONTACT_EMAIL = "p.venkateswarlu333@gmail.com"
+TAGLINE = "Nourish · Transform · Glow"
+IG_HANDLE = "@nutrilink.wellness"
+SUBSCRIBE_TE = "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి"
+SUBSCRIBE_EN = "Subscribe for daily Telugu health tips"
+MUSIC_DB = -21   # music level under the voice (dB); voice stays clearly on top
 # ------------------------------------------------------------------------------
 
 THEMES = {
@@ -60,6 +65,30 @@ def font_css():
         out.append(f"@font-face{{font-family:{fam};font-weight:{wt};"
                    f"src:url(data:{mime};base64,{_b64(HERE/'fonts'/fn)}) format('{fmt}')}}")
     return "\n".join(out)
+
+
+def outro_html(c, w, h):
+    g, navy = BRAND_COLORS["green"], BRAND_COLORS["navy"]
+    bg = THEMES.get(c.get("theme", "brand"), THEMES["brand"])
+    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+{font_css()}
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:{bg};display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:80px 72px;overflow:hidden;text-align:center}}
+.te{{font-family:Tel}}
+.logo{{display:block;height:{LOGO_HEIGHT['outro']}px;width:auto}}
+.tag{{margin-top:40px;font-size:40px;font-weight:600;color:{g}}}
+.sub{{margin-top:90px;background:#fff;color:{navy};border-radius:60px;padding:30px 44px}}
+.sub .te{{font-weight:700;font-size:40px;line-height:1.55}}
+.sub .en{{font-size:28px;font-weight:600;margin-top:4px}}
+.handle{{margin-top:36px;font-size:30px;font-weight:600}}
+</style></head><body>
+<img class="logo" id="logo" src="data:image/png;base64,{_b64(LOGO_PNG)}">
+<div class="tag">{TAGLINE}</div>
+<div class="sub"><div class="te">{SUBSCRIBE_TE}</div><div class="en">{SUBSCRIBE_EN}</div></div>
+<div class="handle">Instagram {IG_HANDLE}</div>
+<div id="contact" style="display:none">{CONTACT_NAME} {CONTACT_PHONE} {CONTACT_EMAIL}</div>
+</body></html>"""
 
 
 def html(c, w, h, stage, kind):
@@ -97,13 +126,15 @@ body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:
 .contact{{margin-top:{30 if tall else 16}px;background:#fff;color:{navy};border-radius:24px;padding:{26 if tall else 18}px 30px;text-align:center}}
 .contact .n{{font-weight:700;font-size:{34 if tall else 28}px}}
 .contact .d{{font-size:{28 if tall else 23}px;margin-top:4px;font-weight:600}}
+.follow{{margin-top:{0 if tall else 12}px;font-size:22px;font-weight:600}}
 </style></head><body>
 <img class="logo" id="logo" src="data:image/png;base64,{_b64(LOGO_PNG)}">
 <div class="title"><div class="te">{c['title_te']}</div><div class="en">{c['title_en']}</div></div>
 <div class="tips">{tips}</div>
 <div class="cta {cta_show}"><div class="te">{c['cta_te']}</div><div class="en">{c['cta_en']}</div>
 <div class="contact" id="contact"><div class="n">{CONTACT_NAME}</div>
-<div class="d">Call / WhatsApp: {CONTACT_PHONE}</div><div class="d">{CONTACT_EMAIL}</div></div></div>
+<div class="d">Call / WhatsApp: {CONTACT_PHONE}</div><div class="d">{CONTACT_EMAIL}</div></div>
+<div class="follow">{'Follow ' + IG_HANDLE + ' for daily Telugu health tips' if not tall else ''}</div></div>
 </body></html>"""
 
 
@@ -120,7 +151,7 @@ MEASURE_JS = """() => {
     s.remove();
   }
   const W = document.body.clientWidth, H = document.body.clientHeight;
-  for (const el of document.querySelectorAll('.logo,.title,.tip,.cta,.contact,.te,.en')) {
+  for (const el of document.querySelectorAll('.logo,.title,.tip,.cta,.contact,.te,.en,.tag,.sub,.handle,.follow')) {
     const b = el.getBoundingClientRect();
     if (b.left < 0 || b.top < 0 || b.right > W + 0.5 || b.bottom > H + 0.5 || el.scrollWidth > el.clientWidth + 1)
       r.overflow.push({cls: el.className, text: (el.textContent||'').slice(0,40), box: [b.left,b.top,b.right,b.bottom]});
@@ -134,11 +165,42 @@ MEASURE_JS = """() => {
 
 def shot(page, c, w, h, stage, kind, path):
     page.set_viewport_size({"width": w, "height": h})
-    page.set_content(html(c, w, h, stage, kind))
+    page.set_content(outro_html(c, w, h) if kind == "outro" else html(c, w, h, stage, kind))
     page.evaluate("async () => { await Promise.all([...document.fonts].map(f => f.load())); await document.fonts.ready; }")
     page.wait_for_timeout(300)
     page.screenshot(path=path, type="png")
     return page.evaluate(MEASURE_JS)
+
+
+def build_voice(c, out, td):
+    """Synthesize narration per stage (phrase by phrase). Returns list of (stage_wav, seconds) and phrase records."""
+    import voice
+    vdir = out / "voice"; vdir.mkdir(exist_ok=True)
+    for old in vdir.glob("*"):
+        old.unlink()
+    stages, records = [], []
+    for si, seg in enumerate(voice.script(c)):
+        parts = []
+        for pi, ph in enumerate(voice.phrases(seg)):
+            wav = f"{td}/s{si}p{pi}.wav"
+            dur = voice.synth(ph, wav)
+            keep = vdir / f"s{si}p{pi}.m4a"
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav, "-c:a", "aac", "-b:a", "64k", str(keep)], check=True)
+            records.append({"stage": si, "phrase": ph, "file": f"voice/{keep.name}", "seconds": round(dur, 2)})
+            parts.append((wav, 0.35 if ph.endswith((".", "!", "?")) else 0.18))
+        # concat phrases with natural pauses
+        lst = f"{td}/s{si}.txt"; args = ["ffmpeg", "-y", "-loglevel", "error"]
+        filt, k = [], 0
+        for wav, gap in parts:
+            args += ["-i", wav, "-f", "lavfi", "-t", str(gap), "-i", "anullsrc=r=22050:cl=mono"]
+            filt.append(f"[{k}:a][{k+1}:a]"); k += 2
+        out_wav = f"{td}/stage{si}.wav"
+        args += ["-filter_complex", "".join(filt) + f"concat=n={k}:v=0:a=1[a]", "-map", "[a]", "-ar", "44100", out_wav]
+        subprocess.run(args, check=True)
+        secs = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out_wav],
+                                    capture_output=True, text=True).stdout)
+        stages.append((out_wav, secs))
+    return stages, records
 
 
 def main():
@@ -152,18 +214,57 @@ def main():
         page = b.new_page()
         qa["post"] = shot(page, c, 1080, 1350, n + 1, "post", f"{td}/post.png")
         frames = []
-        for s in range(0, n + 2):
-            f = f"{td}/f{s}.png"
-            m = shot(page, c, 1080, 1920, s, "short", f)
+        for s_ in range(0, n + 2):
+            f = f"{td}/f{s_}.png"
+            m = shot(page, c, 1080, 1920, s_, "short", f)
             frames.append(f)
-        qa["short"] = m  # final (full) frame
+        qa["short"] = m
+        qa["outro"] = shot(page, c, 1080, 1920, 0, "outro", f"{td}/outro.png")
+        frames.append(f"{td}/outro.png")
         b.close()
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", f"{td}/post.png", "-q:v", "2", str(out / "post.jpg")], check=True)
-        durs = [2.0] + [3.0] * n + [5.0]
+
+        # ---- voice-over: one narration block per stage (title, tips, CTA+contact, brand outro)
+        stages, records = build_voice(c, out, td)
+        assert len(stages) == len(frames), (len(stages), len(frames))
+        LEAD, TAIL = 0.3, 0.5
+        durs = [max(2.5, LEAD + secs + TAIL) for _, secs in stages]
+        durs[-1] += 0.8
+        total = sum(durs)
+        starts = [sum(durs[:i]) for i in range(len(durs))]
+        qa["voice"] = {"phrases": records, "stage_starts": starts, "stage_durations": durs}
+
+        # voice track
+        args = ["ffmpeg", "-y", "-loglevel", "error"]
+        for wav, _ in stages:
+            args += ["-i", wav]
+        mix = []
+        for i, st in enumerate(starts):
+            ms = int((st + LEAD) * 1000)
+            mix.append(f"[{i}:a]adelay={ms}|{ms},apad[d{i}]")
+        args += ["-filter_complex", ";".join(mix) + ";" + "".join(f"[d{i}]" for i in range(len(stages))) +
+                 f"amix=inputs={len(stages)}:normalize=0,atrim=0:{total:.2f},loudnorm=I=-16:TP=-2:LRA=9[v]",
+                 "-map", "[v]", "-ac", "2", "-ar", "44100", f"{td}/voice.wav"]
+        subprocess.run(args, check=True)
+        # music (original tracks, rotated by date) under the voice
+        import datetime
+        tracks = sorted((HERE / "audio").glob("track*.m4a"))
+        day = c.get("date") or out.name
+        try:
+            idx = datetime.date.fromisoformat(day).toordinal() % len(tracks)
+        except ValueError:
+            idx = 0
+        music = tracks[idx]
+        qa["music"] = music.name
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", f"{td}/voice.wav", "-i", str(music), "-filter_complex",
+                        f"[1:a]atrim=0:{total:.2f},volume={MUSIC_DB}dB,afade=t=out:st={total-2:.2f}:d=2[m];"
+                        f"[0:a][m]amix=inputs=2:normalize=0,alimiter=limit=0.89[a]",
+                        "-map", "[a]", "-ar", "44100", "-ac", "2", f"{td}/mix.wav"], check=True)
+
         args = ["ffmpeg", "-y", "-loglevel", "error"]
         for f, d in zip(frames, durs):
             args += ["-loop", "1", "-t", str(d + 0.5), "-i", f]
-        args += ["-f", "lavfi", "-t", str(sum(durs) + 0.5), "-i", "anullsrc=r=44100:cl=stereo"]
+        args += ["-i", f"{td}/mix.wav"]
         chain, prev, off = [], "[0:v]", 0.0
         for i in range(1, len(frames)):
             off += durs[i - 1]
@@ -171,8 +272,8 @@ def main():
             prev = f"[v{i}]"
         chain.append(f"{prev}format=yuv420p,fps=30[vout]")
         args += ["-filter_complex", ";".join(chain), "-map", "[vout]", "-map", f"{len(frames)}:a",
-                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-shortest",
-                 "-movflags", "+faststart", str(out / "short.mp4")]
+                 "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "160k",
+                 "-t", f"{total:.2f}", "-movflags", "+faststart", str(out / "short.mp4")]
         subprocess.run(args, check=True)
     json.dump(qa, open(out / "qa.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("rendered", out)
