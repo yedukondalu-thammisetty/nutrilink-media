@@ -1,12 +1,21 @@
 {
-  "theme": "blue",
-  "title_te": "చలికాలంలోనూ నీళ్లు తాగడం మరవకండి!",
-  "title_en": "Stay hydrated, even in winter",
-  "tips": [
-    {"te": "రోజుకు 8–10 గ్లాసుల నీళ్లు తాగండి", "en": "Drink 8–10 glasses of water every day"},
-    {"te": "గోరువెచ్చని నీళ్లు, హెర్బల్ టీ కూడా మంచివే", "en": "Warm water and herbal teas count too"},
-    {"te": "దాహం వేయకపోయినా కొద్దికొద్దిగా తాగుతూ ఉండండి", "en": "Keep sipping, even when you don't feel thirsty"}
-  ],
-  "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
-  "cta_en": "Contact us today for a free wellness demo"
+ "theme": "brand",
+ "title_te": "చలికాలంలోనూ నీళ్లు తాగడం మరవకండి!",
+ "title_en": "Stay hydrated, even in winter",
+ "tips": [
+  {
+   "te": "రోజుకు 8–10 గ్లాసుల నీళ్లు తాగండి",
+   "en": "Drink 8–10 glasses of water every day"
+  },
+  {
+   "te": "గోరువెచ్చని నీళ్లు, హెర్బల్ టీ కూడా మంచివే",
+   "en": "Warm water and herbal teas count too"
+  },
+  {
+   "te": "దాహం వేయకపోయినా కొద్దికొద్దిగా తాగుతూ ఉండండి",
+   "en": "Keep sipping, even when you don't feel thirsty"
+  }
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+ "cta_en": "Contact us today for a free wellness demo"
 }

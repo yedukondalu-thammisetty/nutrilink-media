@@ -1,0 +1,93 @@
+{
+ "logo_sha256": "0ebedbd4cb9820fe502dab7b8b4b03def574919c7978efabd194c6f7709e058c",
+ "post": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చలికాలంలోనూ నీళ్లు తాగడం మరవకండి!",
+    "px": 56,
+    "weight": 700,
+    "width": 961.859375
+   },
+   {
+    "text": "రోజుకు 8–10 గ్లాసుల నీళ్లు తాగండి",
+    "px": 34,
+    "weight": 700,
+    "width": 478.890625
+   },
+   {
+    "text": "గోరువెచ్చని నీళ్లు, హెర్బల్ టీ కూడా మంచివే",
+    "px": 34,
+    "weight": 700,
+    "width": 602.453125
+   },
+   {
+    "text": "దాహం వేయకపోయినా కొద్దికొద్దిగా తాగుతూ ఉండండి",
+    "px": 34,
+    "weight": 700,
+    "width": 737.1875
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 32,
+    "weight": 700,
+    "width": 648.453125
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 427.125,
+   "y": 50,
+   "w": 225.75,
+   "h": 190
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "short": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చలికాలంలోనూ నీళ్లు తాగడం మరవకండి!",
+    "px": 70,
+    "weight": 700,
+    "width": 1202.328125
+   },
+   {
+    "text": "రోజుకు 8–10 గ్లాసుల నీళ్లు తాగండి",
+    "px": 42,
+    "weight": 700,
+    "width": 591.578125
+   },
+   {
+    "text": "గోరువెచ్చని నీళ్లు, హెర్బల్ టీ కూడా మంచివే",
+    "px": 42,
+    "weight": 700,
+    "width": 744.203125
+   },
+   {
+    "text": "దాహం వేయకపోయినా కొద్దికొద్దిగా తాగుతూ ఉండండి",
+    "px": 42,
+    "weight": 700,
+    "width": 910.65625
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 40,
+    "weight": 700,
+    "width": 810.5625
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 391.46875,
+   "y": 90,
+   "w": 297.046875,
+   "h": 250
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ }
+}
