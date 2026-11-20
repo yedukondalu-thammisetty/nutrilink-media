@@ -37,6 +37,10 @@ def _embed_fonts(doc):
         return f"url(data:font/woff2;base64,{data}) format('woff2')"
     return re.sub(r"url\(FONTDIR/([^)]+)\)", rep, doc)
 
+# ---- LOCKED BRAND IDENTITY: identical on every post. Never change per post/theme. ----
+BRAND_NAME = "NutriLink"
+BRAND_SUB = "By NutriiGlow"
+LOGO_SVG = HERE / "brand" / "logo.svg"
 CONTACT_NAME = "Wellness Coach Venkteswarlu.P"
 CONTACT_PHONE = "+91 8008978350"
 CONTACT_EMAIL = "p.venkateswarlu333@gmail.com"
@@ -47,6 +51,10 @@ THEMES = {
     "blue":   ("#0b3b5c", "#1f7ab8", "#e6f2fb", "#ffd166"),
     "purple": ("#3d1a5b", "#7b3fa8", "#f3eafa", "#ffd166"),
 }
+
+
+def logo_uri():
+    return "data:image/svg+xml;base64," + base64.b64encode(LOGO_SVG.read_bytes()).decode()
 
 
 def html(c, w, h, stage):
@@ -71,7 +79,8 @@ body{{width:{w}px;height:{h}px;font-family:Pop,Tel,sans-serif;color:#fff;
   background:radial-gradient(circle at 85% 10%,{mid} 0,transparent 45%),linear-gradient(160deg,{mid},{dark} 70%);
   display:flex;flex-direction:column;padding:{110 if tall else 64}px 72px {80 if tall else 56}px;overflow:hidden}}
 .brand{{display:flex;align-items:center;gap:18px;font-weight:700;font-size:38px;letter-spacing:.5px}}
-.leaf{{width:58px;height:58px;border-radius:0 50% 0 50%;background:{accent};box-shadow:inset -10px -10px 0 rgba(0,0,0,.12)}}
+.logo{{width:58px;height:58px;display:block}}
+.brand,.brand small{{color:#ffffff}}
 .brand small{{display:block;font-weight:400;font-size:24px;opacity:.85}}
 .title{{margin-top:{90 if tall else 50}px}}
 .title .te{{font-family:Tel,Pop;font-weight:700;font-size:{78 if tall else 64}px;line-height:1.45;color:{accent}}}
@@ -91,7 +100,7 @@ body{{width:{w}px;height:{h}px;font-family:Pop,Tel,sans-serif;color:#fff;
 .contact .n{{font-weight:700;font-size:{34 if tall else 28}px}}
 .contact .d{{font-size:{28 if tall else 24}px;margin-top:6px;font-weight:600}}
 </style></head><body>
-<div class="brand"><div class="leaf"></div><div>NutriLink<small>By NutriiGlow</small></div></div>
+<div class="brand"><img class="logo" src="{logo_uri()}"><div>{BRAND_NAME}<small>{BRAND_SUB}</small></div></div>
 <div class="title"><div class="te">{c['title_te']}</div><div class="en">{c['title_en']}</div></div>
 <div class="tips">{tips}</div>
 <div class="cta {cta_show}"><div class="te">{c['cta_te']}</div><div class="en">{c['cta_en']}</div>

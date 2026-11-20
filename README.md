@@ -9,3 +9,6 @@ Daily images and videos for NutriLink By NutriiGlow. Files here are public so Me
 
 Public link format:
 https://raw.githubusercontent.com/yedukondalu-thammisetty/nutrilink-media/main/posts/YYYY-MM-DD/post.jpg
+
+## Brand rules (locked)
+The logo (tools/brand/logo.svg), the names "NutriLink" / "By NutriiGlow", and the contact block are the same on every post. Only the background colour theme and the day's text change. Do not edit tools/brand/ or the BRAND_/CONTACT_ constants in tools/render.py.
