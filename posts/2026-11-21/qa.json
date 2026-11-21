@@ -1,0 +1,207 @@
+{
+ "logo_sha256": "0ebedbd4cb9820fe502dab7b8b4b03def574919c7978efabd194c6f7709e058c",
+ "post": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చలికాలంలో ఏ పండ్లు తినాలి?",
+    "px": 56,
+    "weight": 700,
+    "width": 696.703125
+   },
+   {
+    "text": "జామపండు, ఉసిరి, కమలాపండు తినండి",
+    "px": 34,
+    "weight": 700,
+    "width": 568.765625
+   },
+   {
+    "text": "ప్రతిరోజూ ఒక సీజన్ పండు తినండి",
+    "px": 34,
+    "weight": 700,
+    "width": 484.546875
+   },
+   {
+    "text": "జ్యూస్ కంటే పండును నమిలి తినండి",
+    "px": 34,
+    "weight": 700,
+    "width": 512.390625
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 32,
+    "weight": 700,
+    "width": 648.453125
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 427.125,
+   "y": 50,
+   "w": 225.75,
+   "h": 190
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "short": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చలికాలంలో ఏ పండ్లు తినాలి?",
+    "px": 70,
+    "weight": 700,
+    "width": 870.875
+   },
+   {
+    "text": "జామపండు, ఉసిరి, కమలాపండు తినండి",
+    "px": 42,
+    "weight": 700,
+    "width": 702.578125
+   },
+   {
+    "text": "ప్రతిరోజూ ఒక సీజన్ పండు తినండి",
+    "px": 42,
+    "weight": 700,
+    "width": 598.546875
+   },
+   {
+    "text": "జ్యూస్ కంటే పండును నమిలి తినండి",
+    "px": 42,
+    "weight": 700,
+    "width": 632.953125
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 40,
+    "weight": 700,
+    "width": 810.5625
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 391.46875,
+   "y": 90,
+   "w": 297.046875,
+   "h": 250
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "outro": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి",
+    "px": 40,
+    "weight": 700,
+    "width": 789.09375
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 290.46875,
+   "y": 530,
+   "w": 499.046875,
+   "h": 420
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P +91 8008978350 p.venkateswarlu333@gmail.com"
+ },
+ "voice": {
+  "phrases": [
+   {
+    "stage": 0,
+    "phrase": "చలికాలంలో ఏ పండ్లు తినాలి?",
+    "file": "voice/s0p0.m4a",
+    "seconds": 2.91
+   },
+   {
+    "stage": 1,
+    "phrase": "మొదటిది, జామపండు,",
+    "file": "voice/s1p0.m4a",
+    "seconds": 2.35
+   },
+   {
+    "stage": 1,
+    "phrase": "ఉసిరి, కమలాపండు తినండి.",
+    "file": "voice/s1p1.m4a",
+    "seconds": 2.55
+   },
+   {
+    "stage": 2,
+    "phrase": "రెండవది, ప్రతిరోజూ ఒక సీజన్ పండు తినండి.",
+    "file": "voice/s2p0.m4a",
+    "seconds": 4.22
+   },
+   {
+    "stage": 3,
+    "phrase": "మూడవది, జ్యూస్ కంటే పండును నమిలి తినండి.",
+    "file": "voice/s3p0.m4a",
+    "seconds": 3.77
+   },
+   {
+    "stage": 4,
+    "phrase": "ఉచిత వెల్నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి.",
+    "file": "voice/s4p0.m4a",
+    "seconds": 4.76
+   },
+   {
+    "stage": 4,
+    "phrase": "వెల్నెస్ కోచ్ వెంకటేశ్వర్లు గారిని,",
+    "file": "voice/s4p1.m4a",
+    "seconds": 2.98
+   },
+   {
+    "stage": 4,
+    "phrase": "స్క్రీన్పై ఉన్న నంబర్లో సంప్రదించండి.",
+    "file": "voice/s4p2.m4a",
+    "seconds": 4.09
+   },
+   {
+    "stage": 5,
+    "phrase": "న్యూట్రిలింక్ బై న్యూట్రిగ్లో.",
+    "file": "voice/s5p0.m4a",
+    "seconds": 2.55
+   },
+   {
+    "stage": 5,
+    "phrase": "నరిష్, ట్రాన్స్ఫార్మ్, గ్లో.",
+    "file": "voice/s5p1.m4a",
+    "seconds": 3.01
+   },
+   {
+    "stage": 5,
+    "phrase": "రోజూ ఆరోగ్య చిట్కాల కోసం,",
+    "file": "voice/s5p2.m4a",
+    "seconds": 2.68
+   },
+   {
+    "stage": 5,
+    "phrase": "మా ఛానెల్ని సబ్స్క్రైబ్ చేయండి.",
+    "file": "voice/s5p3.m4a",
+    "seconds": 3.16
+   }
+  ],
+  "stage_starts": [
+   0,
+   4.064852999999999,
+   10.295736999999999,
+   15.660906999999998,
+   20.584898,
+   34.097687
+  ],
+  "stage_durations": [
+   4.064852999999999,
+   6.230884,
+   5.36517,
+   4.923991,
+   13.512789000000001,
+   14.233968
+  ]
+ },
+ "music": "track1.m4a"
+}
