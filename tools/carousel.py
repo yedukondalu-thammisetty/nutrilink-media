@@ -50,7 +50,7 @@ body{{width:1080px;height:1350px;overflow:hidden;background:#FAFAF7;color:{NAVY}
 .hl{{color:{TEAL}}} .q{{color:{BLUE}}}
 .ul{{background:linear-gradient(transparent 68%,rgba(139,213,78,.55) 68%)}}
 .head{{position:absolute;left:64px;right:64px;top:48px;display:flex;justify-content:space-between;align-items:center}}
-.badge{{background:{NAVY};border-radius:22px;padding:12px 22px;display:flex;align-items:center}}
+.badge{{background:linear-gradient(150deg,{TEAL} 0%,#1690C4 55%,{BLUE} 100%);border-radius:24px;padding:12px 24px;display:flex;align-items:center;box-shadow:0 8px 24px rgba(31,114,224,.25)}}
 .logo{{height:96px;width:auto;display:block}}
 .pg{{font-size:28px;font-weight:600;color:#6B7280}}
 .main{{position:absolute;left:80px;right:80px;top:200px;bottom:150px;display:flex;flex-direction:column;justify-content:center}}

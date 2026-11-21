@@ -18,3 +18,7 @@ The logo (tools/brand/logo.svg), the names "NutriLink" / "By NutriiGlow", and th
   (question people ask -> my answer -> how-to steps -> one thing to remember -> DM keyword + contact card).
 - It prints "CAROUSEL: PASS" only when fonts load, nothing overflows, the locked logo is the right size and the contact card is exact.
 - Instagram gets the carousel; YouTube Shorts still gets short.mp4 (title_te is the same question, tips are the steps).
+
+## Conversation video (from 2026-11-22)
+- When content.json has "answer_te"/"answer_en", short.mp4 is a chat: the viewer's question bubble, the coach's answer bubble ("నా సమాధానం"), then the steps and the DM keyword + contact card, with the Telugu voice-over. The same video goes to YouTube Shorts and Instagram Reels.
+- The logo always sits on the official teal-to-blue gradient (same as the app icon); the "theme" key is ignored.

@@ -47,8 +47,10 @@ def speakable(text):
 
 
 def script(c):
-    """Narration segments, one per video stage: title, tip1..3, CTA+contact, brand outro."""
+    """Narration segments, one per video stage: title, [answer,] tip1..3, CTA+contact, brand outro."""
     segs = [c.get("say_title_te") or c["title_te"]]
+    if "answer_te" in c:   # conversation-style short: the coach answers the question
+        segs.append("నా సమాధానం, " + (c.get("say_answer_te") or c["answer_te"]))
     ordinal = ["మొదటిది", "రెండవది", "మూడవది", "నాలుగవది"]
     for i, t in enumerate(c["tips"]):
         segs.append(f"{ordinal[i]}, " + (t.get("say_te") or t["te"]))

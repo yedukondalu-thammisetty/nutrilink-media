@@ -69,7 +69,7 @@ def font_css():
 
 def outro_html(c, w, h):
     g, navy = BRAND_COLORS["green"], BRAND_COLORS["navy"]
-    bg = THEMES.get(c.get("theme", "brand"), THEMES["brand"])
+    bg = THEMES["brand"]  # logo always sits on the official teal-to-blue gradient
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 {font_css()}
 *{{margin:0;padding:0;box-sizing:border-box}}
@@ -93,7 +93,7 @@ body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:
 
 def html(c, w, h, stage, kind):
     tall = kind == "short"
-    bg = THEMES.get(c.get("theme", "brand"), THEMES["brand"])
+    bg = THEMES["brand"]  # logo always sits on the official teal-to-blue gradient
     g, navy = BRAND_COLORS["green"], BRAND_COLORS["navy"]
     tips = "".join(
         f"""<div class="tip {'show' if i < stage else ''}">
@@ -138,6 +138,63 @@ body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:
 </body></html>"""
 
 
+def convo_html(c, w, h, stage):
+    """Conversation-style Short (used when content.json has "answer_te"): a viewer asks the question,
+    the coach answers in a chat bubble, then the steps and the DM keyword + contact card build up.
+    Stages: 0 question, 1 answer, 2..n+1 tips, n+2 CTA+contact."""
+    bg = THEMES["brand"]  # logo always sits on the official teal-to-blue gradient
+    g, navy, teal = BRAND_COLORS["green"], BRAND_COLORS["navy"], BRAND_COLORS["teal"]
+    n = len(c["tips"])
+    sh = lambda cond: "show" if cond else ""
+    tips = "".join(
+        f"""<div class="tip {sh(stage >= i + 2)}"><div class="num">{i+1}</div>
+              <div class="tx"><div class="te">{t['te']}</div><div class="en">{t['en']}</div></div></div>""" for i, t in enumerate(c["tips"]))
+    kw = c.get("carousel", {}).get("dm_keyword", "")
+    dm = f'DM or comment “{kw}” · ' if kw else ""
+    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+{font_css()}
+*{{margin:0;padding:0;box-sizing:border-box}}
+body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:{bg};
+  display:flex;flex-direction:column;align-items:stretch;padding:80px 64px 70px;overflow:hidden}}
+.te{{font-family:Tel}}
+.logo{{display:block;height:{LOGO_HEIGHT['short']}px;width:auto;margin:0 auto}}
+.who{{font-size:26px;font-weight:600;opacity:.9;margin-bottom:10px}}
+.who .te{{font-weight:700;font-size:28px}}
+.title{{margin-top:36px;align-self:flex-start;max-width:900px}}
+.bub{{border-radius:34px;padding:26px 34px}}
+.q{{background:#fff;color:{navy};border-top-left-radius:8px}}
+.q .te{{font-weight:700;font-size:58px;line-height:1.5}}
+.q .en{{font-size:26px;font-weight:600;color:{teal};margin-top:4px}}
+.answer{{margin-top:26px;align-self:flex-end;max-width:900px;text-align:right;opacity:0}} .answer.show{{opacity:1}}
+.a{{background:{g};color:{navy};border-top-right-radius:8px;text-align:left}}
+.a .te{{font-weight:700;font-size:54px;line-height:1.5}}
+.a .en{{font-size:25px;font-weight:600;margin-top:2px}}
+.tips{{margin-top:40px;display:flex;flex-direction:column;gap:20px}}
+.tip{{display:flex;gap:20px;align-items:center;background:rgba(19,28,43,.30);border-radius:24px;padding:22px 26px;opacity:0}}
+.tip.show{{opacity:1}}
+.num{{flex:none;width:54px;height:54px;border-radius:50%;background:{g};color:{navy};font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}}
+.tx{{min-width:0}}
+.tip .te{{font-weight:700;font-size:40px;line-height:1.5}}
+.tip .en{{font-size:23px;opacity:.92}}
+.cta{{margin-top:auto;opacity:0;text-align:center}} .cta.show{{opacity:1}}
+.cta .te{{font-weight:700;font-size:36px;line-height:1.5}}
+.cta .en{{font-size:24px;opacity:.95}}
+.contact{{margin-top:18px;background:#fff;color:{navy};border-radius:24px;padding:20px 28px;text-align:center}}
+.contact .n{{font-weight:700;font-size:32px}}
+.contact .d{{font-size:26px;margin-top:2px;font-weight:600}}
+</style></head><body>
+<img class="logo" id="logo" src="data:image/png;base64,{_b64(LOGO_PNG)}">
+<div class="title"><div class="who">👥 <span class="te">చాలామంది నన్ను అడిగే ప్రశ్న</span></div>
+ <div class="bub q"><div class="te">{c['title_te']}</div><div class="en">{c['title_en']}</div></div></div>
+<div class="answer {sh(stage >= 1)}"><div class="who"><span class="te">నా సమాధానం</span> 🧑‍⚕️</div>
+ <div class="bub a"><div class="te">{c['answer_te']}</div><div class="en">{c['answer_en']}</div></div></div>
+<div class="tips">{tips}</div>
+<div class="cta {sh(stage >= n + 2)}"><div class="te">{c['cta_te']}</div><div class="en">{dm}{c['cta_en']}</div>
+<div class="contact" id="contact"><div class="n">{CONTACT_NAME}</div>
+<div class="d">Call / WhatsApp: {CONTACT_PHONE}</div><div class="d">{CONTACT_EMAIL}</div></div></div>
+</body></html>"""
+
+
 MEASURE_JS = """() => {
   const r = {fontsTel400: document.fonts.check('400 40px Tel', 'తెలుగు'),
              fontsTel700: document.fonts.check('700 40px Tel', 'తెలుగు'),
@@ -151,7 +208,7 @@ MEASURE_JS = """() => {
     s.remove();
   }
   const W = document.body.clientWidth, H = document.body.clientHeight;
-  for (const el of document.querySelectorAll('.logo,.title,.tip,.cta,.contact,.te,.en,.tag,.sub,.handle,.follow')) {
+  for (const el of document.querySelectorAll('.logo,.title,.answer,.bub,.tip,.cta,.contact,.te,.en,.tag,.sub,.handle,.follow')) {
     const b = el.getBoundingClientRect();
     if (b.left < 0 || b.top < 0 || b.right > W + 0.5 || b.bottom > H + 0.5 || el.scrollWidth > el.clientWidth + 1)
       r.overflow.push({cls: el.className, text: (el.textContent||'').slice(0,40), box: [b.left,b.top,b.right,b.bottom]});
@@ -165,7 +222,8 @@ MEASURE_JS = """() => {
 
 def shot(page, c, w, h, stage, kind, path):
     page.set_viewport_size({"width": w, "height": h})
-    page.set_content(outro_html(c, w, h) if kind == "outro" else html(c, w, h, stage, kind))
+    page.set_content(outro_html(c, w, h) if kind == "outro" else
+                     convo_html(c, w, h, stage) if (kind == "short" and "answer_te" in c) else html(c, w, h, stage, kind))
     page.evaluate("async () => { await Promise.all([...document.fonts].map(f => f.load())); await document.fonts.ready; }")
     page.wait_for_timeout(300)
     page.screenshot(path=path, type="png")
@@ -214,7 +272,9 @@ def main():
         page = b.new_page()
         qa["post"] = shot(page, c, 1080, 1350, n + 1, "post", f"{td}/post.png")
         frames = []
-        for s_ in range(0, n + 2):
+        import voice
+        n_frames = len(voice.script(c)) - 1   # one frame per narration stage, plus the outro below
+        for s_ in range(0, n_frames):
             f = f"{td}/f{s_}.png"
             m = shot(page, c, 1080, 1920, s_, "short", f)
             frames.append(f)
