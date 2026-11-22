@@ -9,9 +9,9 @@ MODEL_DIR = pathlib.Path(os.environ.get("INDICTTS_DIR", "/opt/indictts/te"))
 VOICE = "female"   # LOCKED brand voice (soft female Telugu voice, chosen 2026-11-22)
 
 # ---------------- LOCKED BRAND LINES (spoken) ----------------
-BRAND_OUTRO_TE = ("ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో. నరిష్ ట్రాన్స్‌ఫార్మ్ అండ్ గ్లో. "
+BRAND_OUTRO_TE = ("ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో. "
                   "రోజూ ఆరోగ్య చిట్కాల కోసం, మా ఛానెల్‌ని సబ్‌స్క్రైబ్ చేయండి.")
-CONTACT_TE = "వెల్‌నెస్ కోచ్ వెంకటేశ్వర్లు గారిని, స్క్రీన్‌పై ఉన్న నంబర్‌లో సంప్రదించండి."
+CONTACT_TE = "వెల్‌నెస్ కోచ్ వెంకటేశ్వర్లు గారికి కాల్ చేయండి."
 # --------------------------------------------------------------
 
 ONES = ["సున్నా", "ఒకటి", "రెండు", "మూడు", "నాలుగు", "ఐదు", "ఆరు", "ఏడు", "ఎనిమిది", "తొమ్మిది", "పది",
@@ -50,7 +50,7 @@ def script(c):
     """Narration segments, one per video stage: title, [answer,] tip1..3, CTA+contact, brand outro."""
     segs = [c.get("say_title_te") or c["title_te"]]
     if "answer_te" in c:   # conversation-style short: the coach answers the question
-        segs.append("నా సమాధానం, " + (c.get("say_answer_te") or c["answer_te"]))
+        segs.append("నా సలహా, " + (c.get("say_answer_te") or c["answer_te"]))
     ordinal = ["మొదటిది", "రెండవది", "మూడవది", "నాలుగవది"]
     for i, t in enumerate(c["tips"]):
         segs.append(f"{ordinal[i]}, " + (t.get("say_te") or t["te"]))
@@ -93,8 +93,20 @@ def _load():
     return _synth
 
 
+SPEED = 1.35   # LOCKED: >1 = slower, calmer delivery (chosen 2026-11-22)
+# LOCKED smoothing: gentle EQ, de-essing, light compression and a small room so the voice sounds softer
+SMOOTH = ("highpass=f=80,lowpass=f=6500,deesser=i=0.5,"
+          "acompressor=threshold=-22dB:ratio=2.5:attack=15:release=250:makeup=2,"
+          "equalizer=f=250:t=q:w=1.2:g=2.5,equalizer=f=4000:t=q:w=1.5:g=-4")
+
+
 def synth(text, path):
+    import subprocess
     s = _load()
+    s.tts_model.length_scale = SPEED
     wav = s.tts(text, speaker_name=VOICE)
-    s.save_wav(wav, str(path))
+    raw = str(path) + ".raw.wav"
+    s.save_wav(wav, raw)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", SMOOTH, str(path)], check=True)
+    os.remove(raw)
     return len(wav) / s.output_sample_rate
