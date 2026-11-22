@@ -6,10 +6,10 @@ Setup (once per machine, ~5 min):  bash tools/setup_voice.sh
 import json, os, pathlib, re
 
 MODEL_DIR = pathlib.Path(os.environ.get("INDICTTS_DIR", "/opt/indictts/te"))
-VOICE = "male"   # LOCKED brand voice
+VOICE = "female"   # LOCKED brand voice (soft female Telugu voice, chosen 2026-11-22)
 
 # ---------------- LOCKED BRAND LINES (spoken) ----------------
-BRAND_OUTRO_TE = ("న్యూట్రిలింక్ బై న్యూట్రిగ్లో. నరిష్, ట్రాన్స్‌ఫార్మ్, గ్లో. "
+BRAND_OUTRO_TE = ("ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో. నరిష్ ట్రాన్స్‌ఫార్మ్ అండ్ గ్లో. "
                   "రోజూ ఆరోగ్య చిట్కాల కోసం, మా ఛానెల్‌ని సబ్‌స్క్రైబ్ చేయండి.")
 CONTACT_TE = "వెల్‌నెస్ కోచ్ వెంకటేశ్వర్లు గారిని, స్క్రీన్‌పై ఉన్న నంబర్‌లో సంప్రదించండి."
 # --------------------------------------------------------------
