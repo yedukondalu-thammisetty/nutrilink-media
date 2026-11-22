@@ -1,0 +1,52 @@
+{
+ "theme": "brand",
+ "title_te": "రాత్రి నిద్ర త్వరగా పట్టాలంటే?",
+ "title_en": "How to fall asleep faster at night?",
+ "answer_te": "ఒకే సమయానికి పడుకోండి",
+ "answer_en": "Go to bed at the same time daily",
+ "tips": [
+  {
+   "te": "పడుకునే ముందు ఫోన్ వద్దు",
+   "en": "No phone an hour before bed"
+  },
+  {
+   "te": "రాత్రి భోజనం తేలికగా, త్వరగా",
+   "en": "Eat a light, early dinner",
+   "say_te": "రాత్రి భోజనం తేలికగా త్వరగా చేయండి"
+  },
+  {
+   "te": "ఉదయం ఎండలో కాసేపు నడవండి",
+   "en": "Walk in the morning sun for a while"
+  }
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+ "cta_en": "Contact us today for a free wellness demo",
+ "carousel": {
+  "question_te": "బెడ్ మీద పడుకున్నా [[Sleep]] రావడం లేదా?",
+  "answer_te": "మీ {{Routine}} మార్చండి చాలు!",
+  "why_te": "Problem నిద్ర కాదు… మన Night [[Routine]].",
+  "why_detail_te": "రాత్రి Late గా Phone చూడటం, ఆలస్యంగా భారీ Dinner, రోజూ వేర్వేరు సమయాలకు పడుకోవడం — ఇవే మన Body Clock ని Confuse చేస్తాయి.",
+  "steps_title_te": "ఈ రాత్రి నుంచే ఇలా చేయండి",
+  "steps": [
+   {
+    "icon": "⏰",
+    "te": "రోజూ ఒకే Time కి పడుకోండి, లేవండి"
+   },
+   {
+    "icon": "📵",
+    "te": "పడుకునే గంట ముందు Phone వద్దు"
+   },
+   {
+    "icon": "🍲",
+    "te": "Dinner తేలికగా, త్వరగా తినండి"
+   },
+   {
+    "icon": "☀️",
+    "te": "ఉదయం ఎండలో 15 నిమిషాలు నడవండి"
+   }
+  ],
+  "remember_te": "మంచి [[Sleep]] రాత్రి మొదలవదు…\nఉదయం నుంచే మొదలవుతుంది.",
+  "cta_question_te": "మీకు సరిపోయే Sleep {{Routine}} కావాలా?",
+  "dm_keyword": "SLEEP"
+ }
+}

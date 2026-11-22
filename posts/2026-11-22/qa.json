@@ -1,0 +1,227 @@
+{
+ "logo_sha256": "0ebedbd4cb9820fe502dab7b8b4b03def574919c7978efabd194c6f7709e058c",
+ "post": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రాత్రి నిద్ర త్వరగా పట్టాలంటే?",
+    "px": 56,
+    "weight": 700,
+    "width": 666.015625
+   },
+   {
+    "text": "పడుకునే ముందు ఫోన్ వద్దు",
+    "px": 34,
+    "weight": 700,
+    "width": 386.65625
+   },
+   {
+    "text": "రాత్రి భోజనం తేలికగా, త్వరగా",
+    "px": 34,
+    "weight": 700,
+    "width": 425.953125
+   },
+   {
+    "text": "ఉదయం ఎండలో కాసేపు నడవండి",
+    "px": 34,
+    "weight": 700,
+    "width": 480.734375
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 32,
+    "weight": 700,
+    "width": 648.453125
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 427.125,
+   "y": 50,
+   "w": 225.75,
+   "h": 190
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "short": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చాలామంది నన్ను అడిగే ప్రశ్న",
+    "px": 28,
+    "weight": 700,
+    "width": 334.8125
+   },
+   {
+    "text": "రాత్రి నిద్ర త్వరగా పట్టాలంటే?",
+    "px": 58,
+    "weight": 700,
+    "width": 689.796875
+   },
+   {
+    "text": "నా సమాధానం",
+    "px": 28,
+    "weight": 700,
+    "width": 170.75
+   },
+   {
+    "text": "ఒకే సమయానికి పడుకోండి",
+    "px": 54,
+    "weight": 700,
+    "width": 587.90625
+   },
+   {
+    "text": "పడుకునే ముందు ఫోన్ వద్దు",
+    "px": 40,
+    "weight": 700,
+    "width": 454.890625
+   },
+   {
+    "text": "రాత్రి భోజనం తేలికగా, త్వరగా",
+    "px": 40,
+    "weight": 700,
+    "width": 501.125
+   },
+   {
+    "text": "ఉదయం ఎండలో కాసేపు నడవండి",
+    "px": 40,
+    "weight": 700,
+    "width": 565.5625
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి",
+    "px": 36,
+    "weight": 700,
+    "width": 729.515625
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 391.46875,
+   "y": 80,
+   "w": 297.046875,
+   "h": 250
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "outro": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి",
+    "px": 40,
+    "weight": 700,
+    "width": 789.09375
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 290.46875,
+   "y": 530,
+   "w": 499.046875,
+   "h": 420
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P +91 8008978350 p.venkateswarlu333@gmail.com"
+ },
+ "voice": {
+  "phrases": [
+   {
+    "stage": 0,
+    "phrase": "రాత్రి నిద్ర త్వరగా పట్టాలంటే?",
+    "file": "voice/s0p0.m4a",
+    "seconds": 2.81
+   },
+   {
+    "stage": 1,
+    "phrase": "నా సమాధానం, ఒకే సమయానికి పడుకోండి.",
+    "file": "voice/s1p0.m4a",
+    "seconds": 3.23
+   },
+   {
+    "stage": 2,
+    "phrase": "మొదటిది, పడుకునే ముందు ఫోన్ వద్దు.",
+    "file": "voice/s2p0.m4a",
+    "seconds": 3.05
+   },
+   {
+    "stage": 3,
+    "phrase": "రెండవది, రాత్రి భోజనం తేలికగా త్వరగా చేయండి.",
+    "file": "voice/s3p0.m4a",
+    "seconds": 3.66
+   },
+   {
+    "stage": 4,
+    "phrase": "మూడవది, ఉదయం ఎండలో కాసేపు నడవండి.",
+    "file": "voice/s4p0.m4a",
+    "seconds": 3.58
+   },
+   {
+    "stage": 5,
+    "phrase": "ఉచిత వెల్నెస్ డెమో కోసం ఇప్పుడే సంప్రదించండి.",
+    "file": "voice/s5p0.m4a",
+    "seconds": 4.76
+   },
+   {
+    "stage": 5,
+    "phrase": "వెల్నెస్ కోచ్ వెంకటేశ్వర్లు గారిని,",
+    "file": "voice/s5p1.m4a",
+    "seconds": 2.98
+   },
+   {
+    "stage": 5,
+    "phrase": "స్క్రీన్పై ఉన్న నంబర్లో సంప్రదించండి.",
+    "file": "voice/s5p2.m4a",
+    "seconds": 4.09
+   },
+   {
+    "stage": 6,
+    "phrase": "న్యూట్రిలింక్ బై న్యూట్రిగ్లో.",
+    "file": "voice/s6p0.m4a",
+    "seconds": 2.55
+   },
+   {
+    "stage": 6,
+    "phrase": "నరిష్, ట్రాన్స్ఫార్మ్, గ్లో.",
+    "file": "voice/s6p1.m4a",
+    "seconds": 3.01
+   },
+   {
+    "stage": 6,
+    "phrase": "రోజూ ఆరోగ్య చిట్కాల కోసం,",
+    "file": "voice/s6p2.m4a",
+    "seconds": 2.68
+   },
+   {
+    "stage": 6,
+    "phrase": "మా ఛానెల్ని సబ్స్క్రైబ్ చేయండి.",
+    "file": "voice/s6p3.m4a",
+    "seconds": 3.16
+   }
+  ],
+  "stage_starts": [
+   0,
+   3.9603629999999996,
+   8.338685,
+   12.542857,
+   17.350748,
+   22.077368999999997,
+   35.590158
+  ],
+  "stage_durations": [
+   3.9603629999999996,
+   4.378322,
+   4.204172,
+   4.807891,
+   4.726621,
+   13.512789000000001,
+   14.233968
+  ]
+ },
+ "music": "track2.m4a"
+}
