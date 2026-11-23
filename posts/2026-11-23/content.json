@@ -1,0 +1,39 @@
+{
+ "theme": "brand",
+ "title_te": "భోజనం తర్వాత మత్తుగా ఉందా?",
+ "title_en": "Feeling sleepy after lunch?",
+ "answer_te": "అన్నం కొంచెం తగ్గించండి",
+ "answer_en": "Eat a little less rice",
+ "tips": [
+  {
+   "te": "పప్పు, కూరలు ఎక్కువ తినండి",
+   "en": "Add more dal and vegetables"
+  },
+  {
+   "te": "తిన్న తర్వాత పది నిమిషాలు నడవండి",
+   "en": "Walk for 10 minutes after eating"
+  },
+  {
+   "te": "కడుపు నిండా తినకండి",
+   "en": "Don't overeat at lunch"
+  }
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+ "cta_en": "Contact us for a free wellness demo",
+ "carousel": {
+  "question_te": "Lunch తర్వాత [[నిద్ర మత్తు]] వస్తుందా?",
+  "answer_te": "Reason మీ {{Lunch Plate}} లోనే ఉంది!",
+  "why_te": "ఎక్కువ అన్నం = తక్కువ [[Energy]]",
+  "why_detail_te": "ఒకేసారి ఎక్కువ అన్నం, తక్కువ కూరలు, తిన్న వెంటనే కూర్చోవడం — ఇవే మధ్యాహ్నం Energy Drop కి కారణం. రోజూ బాగా అలసటగా ఉంటే Doctor ని కలవండి.",
+  "steps_title_te": "రేపటి Lunch నుంచే ఇలా చేయండి",
+  "steps": [
+   {"icon": "🍚", "te": "అన్నం కొంచెం తగ్గించండి"},
+   {"icon": "🥗", "te": "పప్పు, కూరలు, పెరుగు ఎక్కువ పెట్టుకోండి"},
+   {"icon": "🚶", "te": "తిన్న తర్వాత 10 నిమిషాలు నడవండి"},
+   {"icon": "💧", "te": "రోజంతా నీళ్లు తాగుతూ ఉండండి"}
+  ],
+  "remember_te": "Afternoon [[Energy]] కి Tea కాదు…\nసరైన Plate కావాలి.",
+  "cta_question_te": "మీకు సరిపోయే {{Lunch Plate}} తెలుసుకోవాలా?",
+  "dm_keyword": "ENERGY"
+ }
+}
