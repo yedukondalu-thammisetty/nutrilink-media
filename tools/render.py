@@ -146,8 +146,10 @@ def convo_html(c, w, h, stage):
     g, navy, teal = BRAND_COLORS["green"], BRAND_COLORS["navy"], BRAND_COLORS["teal"]
     n = len(c["tips"])
     sh = lambda cond: "show" if cond else ""
+    from icons import icon_uri
+    pic = lambda e, px: f'<img class="pic" src="{icon_uri(e)[0]}" style="width:{px}px;height:{px}px">'
     tips = "".join(
-        f"""<div class="tip {sh(stage >= i + 2)}"><div class="num">{i+1}</div>
+        f"""<div class="tip {sh(stage >= i + 2)}">{pic(t['icon'], 84) if t.get('icon') else f'<div class="num">{i+1}</div>'}
               <div class="tx"><div class="te">{t['te']}</div><div class="en">{t['en']}</div></div></div>""" for i, t in enumerate(c["tips"]))
     kw = c.get("carousel", {}).get("dm_keyword", "")
     dm = f'DM or comment “{kw}” · ' if kw else ""
@@ -169,7 +171,9 @@ body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:
 .a{{background:{g};color:{navy};border-top-right-radius:8px;text-align:left}}
 .a .te{{font-weight:700;font-size:54px;line-height:1.5}}
 .a .en{{font-size:25px;font-weight:600;margin-top:2px}}
-.tips{{margin-top:40px;display:flex;flex-direction:column;gap:20px}}
+.hero{{display:flex;justify-content:center;align-items:flex-end;gap:16px;margin-top:22px;opacity:0}} .hero.show{{opacity:1}}
+.pic{{display:block;flex:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}}
+.tips{{margin-top:26px;display:flex;flex-direction:column;gap:20px}}
 .tip{{display:flex;gap:20px;align-items:center;background:rgba(19,28,43,.30);border-radius:24px;padding:22px 26px;opacity:0}}
 .tip.show{{opacity:1}}
 .num{{flex:none;width:54px;height:54px;border-radius:50%;background:{g};color:{navy};font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}}
@@ -188,6 +192,7 @@ body{{width:{w}px;height:{h}px;font-family:Pop,sans-serif;color:#fff;background:
  <div class="bub q"><div class="te">{c['title_te']}</div><div class="en">{c['title_en']}</div></div></div>
 <div class="answer {sh(stage >= 1)}"><div class="who"><span class="te">నా సమాధానం</span> 🧑‍⚕️</div>
  <div class="bub a"><div class="te">{c['answer_te']}</div><div class="en">{c['answer_en']}</div></div></div>
+<div class="hero show">{''.join(pic(e, 190 if j == len(c.get('icons', [])) // 2 else 150) for j, e in enumerate(c.get('icons', [])[:3]))}</div>
 <div class="tips">{tips}</div>
 <div class="cta {sh(stage >= n + 2)}"><div class="te">{c['cta_te']}</div><div class="en">{dm}{c['cta_en']}</div>
 <div class="contact" id="contact"><div class="n">{CONTACT_NAME}</div>

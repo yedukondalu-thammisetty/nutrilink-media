@@ -22,3 +22,8 @@ The logo (tools/brand/logo.svg), the names "NutriLink" / "By NutriiGlow", and th
 ## Conversation video (from 2026-11-22)
 - When content.json has "answer_te"/"answer_en", short.mp4 is a chat: the viewer's question bubble, the coach's answer bubble ("నా సమాధానం"), then the steps and the DM keyword + contact card, with the Telugu voice-over. The same video goes to YouTube Shorts and Instagram Reels.
 - The logo always sits on the official teal-to-blue gradient (same as the app icon); the "theme" key is ignored.
+
+## Picture-rich design (from 2026-11-25)
+- tools/icons/fluent3d: 3D Fluent emoji pictures (MIT). tools/icons.py finds the picture for an emoji.
+- Carousel: 7-8 slides on a warm cream background (cover with question + pictures, answer, one slide per step with title + check-list + pictures, remember, DM + contact). Schema in the docstring of tools/carousel.py.
+- Video: the conversation Short shows a row of 3D pictures ("icons" in content.json) under the question and a picture on each tip (tip "icon").
