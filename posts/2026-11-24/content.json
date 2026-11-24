@@ -1,0 +1,39 @@
+{
+ "theme": "brand",
+ "title_te": "రోజూ ఎంత సేపు నడవాలి?",
+ "title_en": "How long should I walk every day?",
+ "answer_te": "రోజూ అరగంట చాలు",
+ "answer_en": "Half an hour a day is enough",
+ "tips": [
+  {
+   "te": "పది నిమిషాలతో మొదలుపెట్టండి",
+   "en": "Start with just 10 minutes"
+  },
+  {
+   "te": "భోజనం తర్వాత కొంచెం నడవండి",
+   "en": "Take a short walk after meals"
+  },
+  {
+   "te": "చలిలో వెచ్చని బట్టలు వేసుకోండి",
+   "en": "Wear warm clothes in the cold"
+  }
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+ "cta_en": "Contact us for a free wellness demo",
+ "carousel": {
+  "question_te": "రోజూ ఎంత సేపు [[Walking]] చేయాలి?",
+  "answer_te": "రోజూ {{30 నిమిషాలు}} చాలు!",
+  "why_te": "ఎక్కువ కాదు… [[Consistency]] ముఖ్యం",
+  "why_detail_te": "వారానికి ఒకసారి 2 గంటలు నడవడం కంటే, రోజూ 30 నిమిషాలు నడవడం Energy, Sleep, Mood కి మంచిది. మోకాళ్ల నొప్పి లేదా ఆయాసం ఉంటే ముందు Doctor ని అడగండి.",
+  "steps_title_te": "రేపటి నుంచే ఇలా మొదలుపెట్టండి",
+  "steps": [
+   {"icon": "👟", "te": "10 నిమిషాలతో Start చేయండి"},
+   {"icon": "🍽️", "te": "భోజనం తర్వాత కొంచెం నడవండి"},
+   {"icon": "🧣", "te": "చలిలో వెచ్చని బట్టలు వేసుకోండి"},
+   {"icon": "🚶", "te": "Family తో కలిసి నడవండి"}
+  ],
+  "remember_te": "వేగం కాదు… [[రోజూ]] నడవడమే\nఅసలైన Secret.",
+  "cta_question_te": "మీకు సరిపోయే {{Walking Routine}} తెలుసుకోవాలా?",
+  "dm_keyword": "WALK"
+ }
+}

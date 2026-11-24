@@ -1,0 +1,215 @@
+{
+ "logo_sha256": "0ebedbd4cb9820fe502dab7b8b4b03def574919c7978efabd194c6f7709e058c",
+ "post": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఎంత సేపు నడవాలి?",
+    "px": 56,
+    "weight": 700,
+    "width": 623.6875
+   },
+   {
+    "text": "పది నిమిషాలతో మొదలుపెట్టండి",
+    "px": 34,
+    "weight": 700,
+    "width": 454.171875
+   },
+   {
+    "text": "భోజనం తర్వాత కొంచెం నడవండి",
+    "px": 34,
+    "weight": 700,
+    "width": 466.921875
+   },
+   {
+    "text": "చలిలో వెచ్చని బట్టలు వేసుకోండి",
+    "px": 34,
+    "weight": 700,
+    "width": 447.984375
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+    "px": 32,
+    "weight": 700,
+    "width": 540.578125
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 427.125,
+   "y": 50,
+   "w": 225.75,
+   "h": 190
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "short": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చాలామంది నన్ను అడిగే ప్రశ్న",
+    "px": 28,
+    "weight": 700,
+    "width": 334.8125
+   },
+   {
+    "text": "రోజూ ఎంత సేపు నడవాలి?",
+    "px": 58,
+    "weight": 700,
+    "width": 645.953125
+   },
+   {
+    "text": "నా సమాధానం",
+    "px": 28,
+    "weight": 700,
+    "width": 170.75
+   },
+   {
+    "text": "రోజూ అరగంట చాలు",
+    "px": 54,
+    "weight": 700,
+    "width": 468.03125
+   },
+   {
+    "text": "పది నిమిషాలతో మొదలుపెట్టండి",
+    "px": 40,
+    "weight": 700,
+    "width": 534.328125
+   },
+   {
+    "text": "భోజనం తర్వాత కొంచెం నడవండి",
+    "px": 40,
+    "weight": 700,
+    "width": 549.328125
+   },
+   {
+    "text": "చలిలో వెచ్చని బట్టలు వేసుకోండి",
+    "px": 40,
+    "weight": 700,
+    "width": 527.046875
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+    "px": 36,
+    "weight": 700,
+    "width": 608.15625
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 391.46875,
+   "y": 80,
+   "w": 297.046875,
+   "h": 250
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "outro": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి",
+    "px": 40,
+    "weight": 700,
+    "width": 789.09375
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 290.46875,
+   "y": 530,
+   "w": 499.046875,
+   "h": 420
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P +91 8008978350 p.venkateswarlu333@gmail.com"
+ },
+ "voice": {
+  "phrases": [
+   {
+    "stage": 0,
+    "phrase": "రోజూ ఎంత సేపు నడవాలి?",
+    "file": "voice/s0p0.m4a",
+    "seconds": 3.23
+   },
+   {
+    "stage": 1,
+    "phrase": "నా సలహా, రోజూ అరగంట చాలు.",
+    "file": "voice/s1p0.m4a",
+    "seconds": 3.65
+   },
+   {
+    "stage": 2,
+    "phrase": "మొదటిది, పది నిమిషాలతో మొదలుపెట్టండి.",
+    "file": "voice/s2p0.m4a",
+    "seconds": 4.32
+   },
+   {
+    "stage": 3,
+    "phrase": "రెండవది, భోజనం తర్వాత కొంచెం నడవండి.",
+    "file": "voice/s3p0.m4a",
+    "seconds": 4.2
+   },
+   {
+    "stage": 4,
+    "phrase": "మూడవది, చలిలో వెచ్చని బట్టలు వేసుకోండి.",
+    "file": "voice/s4p0.m4a",
+    "seconds": 4.31
+   },
+   {
+    "stage": 5,
+    "phrase": "ఉచిత వెల్నెస్ డెమో కోసం సంప్రదించండి.",
+    "file": "voice/s5p0.m4a",
+    "seconds": 4.19
+   },
+   {
+    "stage": 5,
+    "phrase": "వెల్నెస్ కోచ్ వెంకటేశ్వర్లు గారికి కాల్ చేయండి.",
+    "file": "voice/s5p1.m4a",
+    "seconds": 5.74
+   },
+   {
+    "stage": 6,
+    "phrase": "ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో.",
+    "file": "voice/s6p0.m4a",
+    "seconds": 3.77
+   },
+   {
+    "stage": 6,
+    "phrase": "రోజూ ఆరోగ్య చిట్కాల కోసం,",
+    "file": "voice/s6p1.m4a",
+    "seconds": 3.52
+   },
+   {
+    "stage": 6,
+    "phrase": "మా ఛానెల్ని సబ్స్క్రైబ్ చేయండి.",
+    "file": "voice/s6p2.m4a",
+    "seconds": 3.91
+   }
+  ],
+  "stage_starts": [
+   0,
+   4.378322,
+   9.174603000000001,
+   14.644263,
+   19.997823,
+   25.455873,
+   36.8839
+  ],
+  "stage_durations": [
+   4.378322,
+   4.7962810000000005,
+   5.46966,
+   5.35356,
+   5.45805,
+   11.428027,
+   13.685850000000002
+  ]
+ },
+ "music": "track1.m4a"
+}
