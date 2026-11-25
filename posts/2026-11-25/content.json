@@ -1,0 +1,42 @@
+{
+ "theme": "brand",
+ "title_te": "ఫోన్ చూసి కళ్ళు అలసిపోతున్నాయా?",
+ "title_en": "Eyes tired from looking at the phone?",
+ "say_title_te": "ఎక్కువ సేపు ఫోను చూసి కళ్ళు అలసిపోతున్నాయా?",
+ "answer_te": "కళ్ళకు విరామం ఇవ్వండి",
+ "answer_en": "Give your eyes short breaks",
+ "icons": ["📱", "👀", "💻"],
+ "tips": [
+  {"te": "ఇరవై నిమిషాలకోసారి దూరం చూడండి", "en": "Every 20 minutes, look far away", "icon": "⏰"},
+  {"te": "తరచూ కళ్ళు ఆర్పండి", "en": "Blink often", "icon": "😌"},
+  {"te": "చీకట్లో ఫోన్ చూడకండి", "en": "Don't use the phone in the dark", "icon": "💡", "say_te": "చీకట్లో ఫోను చూడకండి"}
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+ "cta_en": "Contact us for a free wellness demo",
+ "carousel": {
+  "question_te": "రోజంతా [[Phone]] చూసి\nకళ్ళు అలసిపోతున్నాయా?",
+  "cover_icons": ["💻", "👀", "📱", "🥱"],
+  "answer_te": "కళ్ళకు {{చిన్న Breaks}} ఇవ్వండి!",
+  "why_te": "కళ్ళకు కూడా [[Rest]] కావాలి",
+  "why_detail_te": "Screen చూస్తున్నప్పుడు మనం కళ్ళు తక్కువగా ఆర్పుతాం. అందుకే కళ్ళు పొడిబారి అలసిపోతాయి. నొప్పి లేదా మసకగా కనిపిస్తే Eye Doctor ని కలవండి.",
+  "answer_icons": ["⏰", "👀", "😌"],
+  "steps": [
+   {"icon": "⏰", "title": "20-20-20", "subtitle_te": "ప్రతి 20 నిమిషాలకు ఒక [[Break]]",
+    "points": ["20 అడుగుల దూరం చూడండి", "20 సెకన్లు అలా చూడండి", "Phone లో {{Reminder}} పెట్టుకోండి"],
+    "icons": ["⏰", "🪟", "🌳", "👀"]},
+   {"icon": "😌", "title": "Blink", "subtitle_te": "తరచూ కళ్ళు [[ఆర్పండి]]",
+    "points": ["Screen చూస్తూ Blink మర్చిపోతాం", "నెమ్మదిగా {{10 సార్లు}} Blink చేయండి", "రోజూ తగినన్ని నీళ్ళు తాగండి"],
+    "icons": ["😌", "👁️", "💧", "🚰"]},
+   {"icon": "💡", "title": "Light", "subtitle_te": "సరైన [[Light]] లో చూడండి",
+    "points": ["చీకట్లో Phone చూడకండి", "Screen {{Brightness}} తగ్గించండి", "Screen ని చేయి దూరంలో ఉంచండి"],
+    "icons": ["💡", "📱", "💻", "🪔"]},
+   {"icon": "🥕", "title": "Food", "subtitle_te": "కళ్ళకు మంచి [[ఆహారం]]",
+    "points": ["క్యారెట్, ఆకుకూరలు తినండి", "నారింజ, జామ లాంటి పండ్లు", "రోజూ ఒక గుప్పెడు {{Nuts}}"],
+    "icons": ["🥕", "🥬", "🍊", "🥜"]}
+  ],
+  "remember_te": "చిన్న [[Breaks]]…\nకళ్ళకు {{పెద్ద తేడా}}!",
+  "remember_icons": ["😌", "🌳", "👀"],
+  "cta_question_te": "మీ {{Screen Time Routine}}\nగురించి మాట్లాడదామా?",
+  "dm_keyword": "EYES"
+ }
+}
