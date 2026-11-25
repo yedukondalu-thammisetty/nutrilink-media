@@ -1,12 +1,16 @@
 """Telugu voice-over for NutriLink shorts.
 
-Voice: AI4Bharat Indic-TTS (IIT Madras) Telugu FastPitch + HiFiGAN, open model.
-Setup (once per machine, ~5 min):  bash tools/setup_voice.sh
+Voice: AI4Bharat Indic-TTS (IIT Madras) Telugu FastPitch + HiFiGAN speaks the words, then kNN-VC
+(WavLM + HiFiGAN, voice conversion) turns it into the owner-approved brand voice, copied from the
+reference recording in tools/audio/voice_ref/ (approved 2026-11-25).
+Setup (once per machine, ~10 min):  bash tools/setup_voice.sh
 """
 import json, os, pathlib, re
 
 MODEL_DIR = pathlib.Path(os.environ.get("INDICTTS_DIR", "/opt/indictts/te"))
-VOICE = "female"   # LOCKED brand voice (soft female Telugu voice, chosen 2026-11-22)
+VOICE = "male"   # LOCKED base speaker for the brand voice (owner-approved voice copy, 2026-11-25)
+REF_DIR = pathlib.Path(__file__).parent / "audio" / "voice_ref"   # LOCKED reference recording
+KNNVC_DIR = pathlib.Path(os.environ.get("KNNVC_DIR", "/opt/knnvc"))
 
 # ---------------- LOCKED BRAND LINES (spoken) ----------------
 BRAND_OUTRO_TE = ("ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో. "
@@ -93,20 +97,63 @@ def _load():
     return _synth
 
 
-SPEED = 1.35   # LOCKED: >1 = slower, calmer delivery (chosen 2026-11-22)
-# LOCKED smoothing: gentle EQ, de-essing, light compression and a small room so the voice sounds softer
-SMOOTH = ("highpass=f=80,lowpass=f=6500,deesser=i=0.5,"
-          "acompressor=threshold=-22dB:ratio=2.5:attack=15:release=250:makeup=2,"
-          "equalizer=f=250:t=q:w=1.2:g=2.5,equalizer=f=4000:t=q:w=1.5:g=-4")
+SPEED = 1.12   # LOCKED: >1 = slower; owner asked for slightly faster than the approved 1.15 test (2026-11-25)
+# LOCKED smoothing for the brand voice: rumble cut, gentle top, light compression
+SMOOTH = ("highpass=f=70,lowpass=f=7000,"
+          "acompressor=threshold=-22dB:ratio=2:attack=15:release=250:makeup=2")
+
+_vc = None
+
+
+def _load_vc():
+    """kNN-VC model plus the matching set built once from the reference recording."""
+    global _vc
+    if _vc is None:
+        import sys, torch
+        sys.path.insert(0, str(KNNVC_DIR / "code"))
+        ck = KNNVC_DIR / "hub" / "checkpoints"; ck.mkdir(parents=True, exist_ok=True)
+        for f in ("WavLM-Large.pt", "prematch_g_02500000.pt"):
+            if not (ck / f).exists():
+                (ck / f).symlink_to(KNNVC_DIR / f)
+        torch.hub.set_dir(str(KNNVC_DIR / "hub"))
+        from hubconf import knn_vc
+        m = knn_vc(pretrained=True, progress=False, prematched=True, device="cpu")
+        refs = sorted(str(p) for p in REF_DIR.glob("*.flac"))
+        _vc = (m, m.get_matching_set(refs))
+    return _vc
+
+
+def convert(src, dst):
+    """Turn a 16 kHz mono wav into the brand voice."""
+    import torchaudio
+    m, ms = _load_vc()
+    w = m.match(m.get_features(str(src)), ms, topk=4)
+    torchaudio.save(str(dst), w[None], 16000)
+
+
+CACHE_DIR = pathlib.Path(__file__).parent / "audio" / "voice_cache"   # pre-checked recordings of the fixed brand lines
+
+
+def cache_key(text):
+    import hashlib
+    return hashlib.sha256(f"{VOICE}|{SPEED}|{text}".encode()).hexdigest()[:16]
 
 
 def synth(text, path):
-    import subprocess
+    import subprocess, shutil, wave
+    hit = CACHE_DIR / (cache_key(text) + ".wav")
+    if hit.exists():   # fixed brand line: reuse the recording that already passed the speech check
+        shutil.copy(hit, path)
+        with wave.open(str(hit)) as w:
+            return w.getnframes() / w.getframerate()
     s = _load()
     s.tts_model.length_scale = SPEED
     wav = s.tts(text, speaker_name=VOICE)
-    raw = str(path) + ".raw.wav"
+    raw = str(path) + ".raw.wav"; r16 = str(path) + ".16k.wav"; vc = str(path) + ".vc.wav"
     s.save_wav(wav, raw)
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af", SMOOTH, str(path)], check=True)
-    os.remove(raw)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-ac", "1", "-ar", "16000", r16], check=True)
+    convert(r16, vc)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", vc, "-af", SMOOTH, "-ar", "22050", str(path)], check=True)
+    for f in (raw, r16, vc):
+        os.remove(f)
     return len(wav) / s.output_sample_rate
