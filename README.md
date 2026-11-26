@@ -27,3 +27,8 @@ The logo (tools/brand/logo.svg), the names "NutriLink" / "By NutriiGlow", and th
 - tools/icons/fluent3d: 3D Fluent emoji pictures (MIT). tools/icons.py finds the picture for an emoji.
 - Carousel: 7-8 slides on a warm cream background (cover with question + pictures, answer, one slide per step with title + check-list + pictures, remember, DM + contact). Schema in the docstring of tools/carousel.py.
 - Video: the conversation Short shows a row of 3D pictures ("icons" in content.json) under the question and a picture on each tip (tip "icon").
+
+## Faster pace (from 2026-11-27)
+- Owner feedback: the voice-over and slide changes were too slow. tools/voice.py SPEED is now 0.95 (was 1.12; lower = faster),
+  pauses between phrases and stage holds in tools/render.py are shorter, and the slide cross-fade is 0.3 s.
+  A typical Short is now ~38 s instead of ~47 s. Fixed brand lines in tools/audio/voice_cache/ were re-recorded and speech-checked for the new speed.

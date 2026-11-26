@@ -250,7 +250,7 @@ def build_voice(c, out, td):
             keep = vdir / f"s{si}p{pi}.m4a"
             subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", wav, "-c:a", "aac", "-b:a", "64k", str(keep)], check=True)
             records.append({"stage": si, "phrase": ph, "file": f"voice/{keep.name}", "seconds": round(dur, 2)})
-            parts.append((wav, 0.35 if ph.endswith((".", "!", "?")) else 0.18))
+            parts.append((wav, 0.22 if ph.endswith((".", "!", "?")) else 0.10))
         # concat phrases with natural pauses
         lst = f"{td}/s{si}.txt"; args = ["ffmpeg", "-y", "-loglevel", "error"]
         filt, k = [], 0
@@ -292,9 +292,9 @@ def main():
         # ---- voice-over: one narration block per stage (title, tips, CTA+contact, brand outro)
         stages, records = build_voice(c, out, td)
         assert len(stages) == len(frames), (len(stages), len(frames))
-        LEAD, TAIL = 0.3, 0.5
-        durs = [max(2.5, LEAD + secs + TAIL) for _, secs in stages]
-        durs[-1] += 0.8
+        LEAD, TAIL = 0.15, 0.25
+        durs = [max(1.8, LEAD + secs + TAIL) for _, secs in stages]
+        durs[-1] += 0.5
         total = sum(durs)
         starts = [sum(durs[:i]) for i in range(len(durs))]
         qa["voice"] = {"phrases": records, "stage_starts": starts, "stage_durations": durs}
@@ -333,7 +333,7 @@ def main():
         chain, prev, off = [], "[0:v]", 0.0
         for i in range(1, len(frames)):
             off += durs[i - 1]
-            chain.append(f"{prev}[{i}:v]xfade=transition=fade:duration=0.5:offset={off:.2f}[v{i}]")
+            chain.append(f"{prev}[{i}:v]xfade=transition=fade:duration=0.3:offset={off:.2f}[v{i}]")
             prev = f"[v{i}]"
         chain.append(f"{prev}format=yuv420p,fps=30[vout]")
         args += ["-filter_complex", ";".join(chain), "-map", "[vout]", "-map", f"{len(frames)}:a",

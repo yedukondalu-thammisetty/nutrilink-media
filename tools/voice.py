@@ -97,7 +97,7 @@ def _load():
     return _synth
 
 
-SPEED = 1.12   # LOCKED: >1 = slower; owner asked for slightly faster than the approved 1.15 test (2026-11-25)
+SPEED = 0.95   # LOCKED: >1 = slower; owner asked for a faster voice-over (2026-11-26, was 1.12)
 # LOCKED smoothing for the brand voice: rumble cut, gentle top, light compression
 SMOOTH = ("highpass=f=70,lowpass=f=7000,"
           "acompressor=threshold=-22dB:ratio=2:attack=15:release=250:makeup=2")
