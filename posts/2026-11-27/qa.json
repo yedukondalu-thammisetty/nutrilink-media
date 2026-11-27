@@ -1,0 +1,215 @@
+{
+ "logo_sha256": "0ebedbd4cb9820fe502dab7b8b4b03def574919c7978efabd194c6f7709e058c",
+ "post": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "శాకాహారంలో ప్రోటీన్ ఎలా?",
+    "px": 56,
+    "weight": 700,
+    "width": 619.140625
+   },
+   {
+    "text": "పప్పు, శనగలు తినండి",
+    "px": 34,
+    "weight": 700,
+    "width": 316.890625
+   },
+   {
+    "text": "పాలు, పెరుగు తీసుకోండి",
+    "px": 34,
+    "weight": 700,
+    "width": 336.953125
+   },
+   {
+    "text": "గుప్పెడు పల్లీలు తినండి",
+    "px": 34,
+    "weight": 700,
+    "width": 325.515625
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+    "px": 32,
+    "weight": 700,
+    "width": 540.578125
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 427.125,
+   "y": 50,
+   "w": 225.75,
+   "h": 190
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "short": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "చాలామంది నన్ను అడిగే ప్రశ్న",
+    "px": 28,
+    "weight": 700,
+    "width": 334.8125
+   },
+   {
+    "text": "శాకాహారంలో ప్రోటీన్ ఎలా?",
+    "px": 58,
+    "weight": 700,
+    "width": 641.25
+   },
+   {
+    "text": "నా సమాధానం",
+    "px": 28,
+    "weight": 700,
+    "width": 170.75
+   },
+   {
+    "text": "ప్రతి పూటా పప్పు ఉండాలి",
+    "px": 54,
+    "weight": 700,
+    "width": 581.75
+   },
+   {
+    "text": "పప్పు, శనగలు తినండి",
+    "px": 40,
+    "weight": 700,
+    "width": 372.8125
+   },
+   {
+    "text": "పాలు, పెరుగు తీసుకోండి",
+    "px": 40,
+    "weight": 700,
+    "width": 396.40625
+   },
+   {
+    "text": "గుప్పెడు పల్లీలు తినండి",
+    "px": 40,
+    "weight": 700,
+    "width": 382.96875
+   },
+   {
+    "text": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+    "px": 36,
+    "weight": 700,
+    "width": 608.15625
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 391.46875,
+   "y": 80,
+   "w": 297.046875,
+   "h": 250
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P\nCall / WhatsApp: +91 8008978350\np.venkateswarlu333@gmail.com"
+ },
+ "outro": {
+  "fontsTel400": true,
+  "fontsTel700": true,
+  "fontsPop": true,
+  "te": [
+   {
+    "text": "రోజూ ఆరోగ్య చిట్కాల కోసం సబ్‌స్క్రైబ్ చేయండి",
+    "px": 40,
+    "weight": 700,
+    "width": 789.09375
+   }
+  ],
+  "overflow": [],
+  "logo": {
+   "x": 290.46875,
+   "y": 530,
+   "w": 499.046875,
+   "h": 420
+  },
+  "contactText": "Wellness Coach Venkteswarlu.P +91 8008978350 p.venkateswarlu333@gmail.com"
+ },
+ "voice": {
+  "phrases": [
+   {
+    "stage": 0,
+    "phrase": "శాకాహారంలో బలం ఎలా వస్తుంది?",
+    "file": "voice/s0p0.m4a",
+    "seconds": 3.04
+   },
+   {
+    "stage": 1,
+    "phrase": "నా సలహా, ప్రతి పూటా పప్పు ఉండాలి.",
+    "file": "voice/s1p0.m4a",
+    "seconds": 2.59
+   },
+   {
+    "stage": 2,
+    "phrase": "మొదటిది, పప్పు, శనగలు తినండి.",
+    "file": "voice/s2p0.m4a",
+    "seconds": 2.33
+   },
+   {
+    "stage": 3,
+    "phrase": "రెండవది, పాలు, పెరుగు తీసుకోండి.",
+    "file": "voice/s3p0.m4a",
+    "seconds": 2.57
+   },
+   {
+    "stage": 4,
+    "phrase": "మూడవది, గుప్పెడు పల్లీలు తినండి.",
+    "file": "voice/s4p0.m4a",
+    "seconds": 2.81
+   },
+   {
+    "stage": 5,
+    "phrase": "ఉచిత వెల్నెస్ డెమో కోసం సంప్రదించండి.",
+    "file": "voice/s5p0.m4a",
+    "seconds": 4.0
+   },
+   {
+    "stage": 5,
+    "phrase": "వెల్నెస్ కోచ్ వెంకటేశ్వర్లు గారికి కాల్ చేయండి.",
+    "file": "voice/s5p1.m4a",
+    "seconds": 4.2
+   },
+   {
+    "stage": 6,
+    "phrase": "ఇది న్యూట్రిలింక్ బై న్యూట్రిగ్లో.",
+    "file": "voice/s6p0.m4a",
+    "seconds": 3.1
+   },
+   {
+    "stage": 6,
+    "phrase": "రోజూ ఆరోగ్య చిట్కాల కోసం,",
+    "file": "voice/s6p1.m4a",
+    "seconds": 2.56
+   },
+   {
+    "stage": 6,
+    "phrase": "మా ఛానెల్ని సబ్స్క్రైబ్ చేయండి.",
+    "file": "voice/s6p2.m4a",
+    "seconds": 3.9
+   }
+  ],
+  "stage_starts": [
+   0,
+   3.64,
+   6.84,
+   9.78,
+   12.959999999999999,
+   16.38,
+   25.42
+  ],
+  "stage_durations": [
+   3.64,
+   3.1999999999999997,
+   2.94,
+   3.1799999999999997,
+   3.42,
+   9.040000000000001,
+   11.0
+  ]
+ },
+ "music": "track1.m4a"
+}

@@ -1,0 +1,42 @@
+{
+ "theme": "brand",
+ "title_te": "శాకాహారంలో ప్రోటీన్ ఎలా?",
+ "title_en": "How to get protein on a vegetarian diet?",
+ "say_title_te": "శాకాహారంలో బలం ఎలా వస్తుంది?",
+ "answer_te": "ప్రతి పూటా పప్పు ఉండాలి",
+ "answer_en": "Have dal at every meal",
+ "icons": ["🍛", "🫘", "💪"],
+ "tips": [
+  {"te": "పప్పు, శనగలు తినండి", "en": "Eat dal and chickpeas", "icon": "🫘"},
+  {"te": "పాలు, పెరుగు తీసుకోండి", "en": "Have milk and curd", "icon": "🥛"},
+  {"te": "గుప్పెడు పల్లీలు తినండి", "en": "Eat a handful of peanuts", "icon": "🥜"}
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+ "cta_en": "Contact us for a free wellness demo",
+ "carousel": {
+  "question_te": "Vegetarian Food లో\n[[Protein]] సరిపోతుందా?",
+  "cover_icons": ["🫘", "🥛", "🍛", "🥜", "🧀"],
+  "answer_te": "సరిపోతుంది… {{Plan}} చేస్తే!",
+  "why_te": "మన [[భోజనంలోనే]] Protein ఉంది",
+  "why_detail_te": "పప్పు, పెరుగు, పల్లీలు, శనగలు — ప్రతి పూటా ఒకటి ఉంటే చాలు. Kidney సమస్యలు ఉంటే Doctor సలహా తీసుకోండి.",
+  "answer_icons": ["🍛", "🫘", "🥛"],
+  "steps": [
+   {"icon": "🫘", "title": "పప్పు", "subtitle_te": "ప్రతి పూటా [[పప్పు]] లేదా శనగలు",
+    "points": ["పెసలు, కందిపప్పు, రాజ్మా", "Breakfast లో {{మొలకలు}}", "అన్నం తగ్గించి పప్పు పెంచండి"],
+    "icons": ["🫘", "🌱", "🍛", "🥣"]},
+   {"icon": "🥛", "title": "పాలు & పెరుగు", "subtitle_te": "రోజూ [[పెరుగు]], మజ్జిగ",
+    "points": ["ఒక గ్లాసు పాలు లేదా మజ్జిగ", "{{Paneer}} వారానికి 2-3 సార్లు", "Gut కి కూడా మంచిది"],
+    "icons": ["🥛", "🧀", "🍚", "🥣"]},
+   {"icon": "🥜", "title": "Nuts & Seeds", "subtitle_te": "Snack గా [[గుప్పెడు పల్లీలు]]",
+    "points": ["Biscuits బదులు {{పల్లీలు}}", "నువ్వులు, బాదం కొంచెం చాలు", "వేయించిన Snacks తగ్గించండి"],
+    "icons": ["🥜", "🌰", "🍵"]},
+   {"icon": "🍽️", "title": "Balance", "subtitle_te": "ప్రతి [[Plate]] లో Protein",
+    "points": ["Plate లో పావు భాగం Protein", "ఇడ్లీతో {{సాంబారు}}, చట్నీ", "నీళ్లు, నడక కూడా ముఖ్యం"],
+    "icons": ["🍽️", "🥗", "🍛", "💧"]}
+  ],
+  "remember_te": "Protein అంటే Gym కాదు…\n[[రోజూ]] {{కొంచెం}} కొంచెం!",
+  "remember_icons": ["💪", "🍛", "😊"],
+  "cta_question_te": "మీ {{Daily Food}} లో\nProtein ఎంత ఉంది?",
+  "dm_keyword": "PROTEIN"
+ }
+}
