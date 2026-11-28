@@ -1,0 +1,41 @@
+{
+ "theme": "brand",
+ "title_te": "రోజంతా కూర్చుంటే నడుము నొప్పా?",
+ "title_en": "Back pain from sitting all day?",
+ "answer_te": "ప్రతి గంటకూ లేవండి",
+ "answer_en": "Get up every hour",
+ "icons": ["🪑", "🧑‍💻", "🚶"],
+ "tips": [
+  {"te": "నిటారుగా కూర్చోండి", "en": "Sit up straight", "icon": "🪑"},
+  {"te": "గంటకోసారి లేచి నడవండి", "en": "Get up and walk every hour", "icon": "🚶"},
+  {"te": "రోజూ యోగా చేయండి", "en": "Do yoga every day", "icon": "🧘"}
+ ],
+ "cta_te": "ఉచిత వెల్‌నెస్ డెమో కోసం సంప్రదించండి",
+ "cta_en": "Contact us for a free wellness demo",
+ "carousel": {
+  "question_te": "రోజంతా కూర్చుని Work…\n[[Back Pain]] వస్తోందా?",
+  "cover_icons": ["🪑", "💻", "🧑‍💻", "📱"],
+  "answer_te": "{{Posture}} + Movement!",
+  "why_te": "ఎక్కువసేపు [[ఒకేలా]] కూర్చోవడమే కారణం",
+  "why_detail_te": "వంగి కూర్చుంటే నడుము, మెడ మీద ఒత్తిడి పెరుగుతుంది. నొప్పి ఎక్కువగా ఉంటే Doctor ని కలవండి.",
+  "answer_icons": ["🧍", "🚶", "🧘"],
+  "steps": [
+   {"icon": "🪑", "title": "Posture", "subtitle_te": "[[నిటారుగా]] కూర్చోండి",
+    "points": ["నడుము Chair కి ఆనించండి", "పాదాలు {{నేల మీద}} ఉంచండి", "Screen కళ్ళ ఎత్తులో పెట్టండి"],
+    "icons": ["🪑", "🧑‍💻", "💻"]},
+   {"icon": "🚶", "title": "Movement", "subtitle_te": "ప్రతి [[గంటకూ]] లేవండి",
+    "points": ["2-3 నిమిషాలు నడవండి", "Phone Calls {{నిలబడి}} మాట్లాడండి", "Lift బదులు మెట్లు ఎక్కండి"],
+    "icons": ["🚶", "⏰", "🪜", "👟"]},
+   {"icon": "🧘", "title": "Stretching", "subtitle_te": "రోజూ [[10 నిమిషాలు]] Yoga",
+    "points": ["మెడ, భుజాలు మెల్లగా తిప్పండి", "నడుము {{Stretch}} మెల్లగా", "ఉదయం లేదా సాయంత్రం చేయండి"],
+    "icons": ["🧘‍♀️", "🧘", "🌅"]},
+   {"icon": "📱", "title": "Phone", "subtitle_te": "[[మెడ]] వంచి చూడకండి",
+    "points": ["Phone కళ్ళ ఎత్తుకు ఎత్తండి", "{{20 నిమిషాలకు}} ఒక Break", "పడుకుని Phone చూడకండి"],
+    "icons": ["📱", "🧍", "⏱️"]}
+  ],
+  "remember_te": "Pain తగ్గాలంటే…\nకూర్చోవడం తగ్గించి [[కదలండి]]!",
+  "remember_icons": ["🚶", "🧘", "😊"],
+  "cta_question_te": "మీరు రోజుకు ఎన్ని గంటలు\n{{కూర్చుంటారు}}?",
+  "dm_keyword": "POSTURE"
+ }
+}
